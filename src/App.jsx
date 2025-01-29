@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import Task from './components/Task/Task'
-import CreateTaskButton from './components/CreateTaskButton/CreateTaskButton';
-import CreateTaskForm from './components/CreateTaskForm/CreateTaskForm';
+import CreateTaskButton from './components/CreateTaskButton/CreateTaskButton'
+import CreateTaskForm from './components/CreateTaskForm/CreateTaskForm'
+import TodoList from './components/TodoList/TodoList'
 import './App.css'
 
-const key = 'todoList';
+const key = 'todoList'
 
 const tasks = [
     {
@@ -17,27 +18,27 @@ const tasks = [
 
 function App() {
     const [todoList, setTodoList] = useState(() => {
-        const localTodoList = localStorage.getItem(key);
+        const localTodoList = localStorage.getItem(key)
         return localTodoList == null ? [] : JSON.parse(localTodoList)
     });
 
     // const [todoList, setTodoList] = useState(tasks);
 
     useEffect(() => {
-        localStorage.setItem(key, JSON.stringify(todoList));
-    }, [todoList]);
+        localStorage.setItem(key, JSON.stringify(todoList))
+    }, [todoList])
 
     const handleAddTask = (newTask) => {
         setTodoList(c => {
             return [...c, newTask];
-        });
+        })
     }
 
     return (
         <>
             <CreateTaskButton />
-            <CreateTaskForm addTaskFunc={handleAddTask} />
-            {todoList.map((task, index) => <Task key={index} task={task} />)}
+            <CreateTaskForm addTask={handleAddTask} />
+            <TodoList todoList={todoList} />
         </>
     )
 }
