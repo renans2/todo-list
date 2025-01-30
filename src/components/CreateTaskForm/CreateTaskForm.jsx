@@ -1,14 +1,19 @@
 import './CreateTaskForm.css'
+import { useContext } from 'react'
+import { AppContext } from '../../App'
 
-export default function CreateTaskForm({ addTask }){
+export default function CreateTaskForm(){
+    const { closeCreateTaskPopUp, handleAddTask } = useContext(AppContext)
+
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const formData = new FormData(e.target);
-        const title = formData.get("title").trim();
+        const formData = new FormData(e.target)
+        const title = formData.get("title").trim()
 
         if(!title){
-            alert('The title cannot be empty.');
+            alert('The title cannot be empty.')
+            return
         }
 
         const newTask = {
@@ -18,7 +23,8 @@ export default function CreateTaskForm({ addTask }){
             created_at: new Date().toLocaleDateString()
         }
 
-        addTask(newTask);
+        handleAddTask(newTask)
+        closeCreateTaskPopUp()
     }
 
     return(
@@ -42,7 +48,7 @@ export default function CreateTaskForm({ addTask }){
 
                 <div className='form-buttons'>
                     <button id='create-button' type="submit">Create task</button>
-                    <button id='cancel-button' type='button'>Cancel</button>
+                    <button onClick={closeCreateTaskPopUp} id='cancel-button' type='button'>Cancel</button>
                 </div>
             </form>
         </>
