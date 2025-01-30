@@ -1,4 +1,4 @@
-import './CreateTaskForm.css'
+import styles from './CreateTaskForm.module.css'
 import { useContext } from 'react'
 import { AppContext } from '../../App'
 
@@ -28,16 +28,14 @@ export default function CreateTaskForm(){
     }
 
     return(
-        <>
-            <form onSubmit={handleSubmit} id="task-form">
+        <div className={styles.blurred}>
+            <form onSubmit={handleSubmit} className={styles.taskForm}>
                 <label htmlFor="title">Title: </label>
                 <input required type="text" name="title" id="title" />
-                <br />
                 
                 <label htmlFor="description">Description (optional): </label>
-                <textarea name="description" id="description"></textarea>
+                <input type="text" name="description" id="description"></input>
                 
-                <br />
                 <label htmlFor="priority">Priority: </label>
                 <select required name="priority" id="priority">
                     <option value="">choose...</option>
@@ -46,11 +44,11 @@ export default function CreateTaskForm(){
                     <option value="high">high</option>
                 </select>
 
-                <div className='form-buttons'>
-                    <button id='create-button' type="submit">Create task</button>
-                    <button onClick={closeCreateTaskPopUp} id='cancel-button' type='button'>Cancel</button>
+                <div className={styles.buttonsDiv}>
+                    <button className={styles.createButton} type="submit">Create task</button>
+                    <button className={styles.cancelButton} onClick={closeCreateTaskPopUp} type='button'>Cancel</button>
                 </div>
             </form>
-        </>
+        </div>
     );
 }

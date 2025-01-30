@@ -1,0 +1,65 @@
+.taskDiv{
+    padding: 20px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 10px auto;
+}
+
+.taskDiv span{
+    margin: 0 10px;
+}
+
+.detailsButton, .removeTaskButton{
+    font-size: large;
+    border: 2px solid grey;
+    margin: 0 10px;
+    border-radius: 10px;
+    width: 125px;
+    height: 40px;
+}
+
+.detailsButton{
+    background-color: rgb(0, 81, 81);
+}
+
+.removeTaskButton{
+    background-color: red;
+}
+
+.title{
+    font-size: 1.5rem;
+    flex: 1;
+}
+
+.priorityDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+}
+
+.low, .medium, .high{
+    color: white;
+    padding: 2px 7px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.low{
+    background-color: green;
+    border-color: rgb(110, 184, 0);
+}
+
+.medium{
+    background-color: rgb(136, 88, 0);
+    border-color: rgb(225, 146, 0);
+}
+
+.high{
+    background-color: rgb(136, 0, 0);
+    border-color: rgb(255, 0, 0);
+}
