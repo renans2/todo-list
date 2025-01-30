@@ -18,7 +18,6 @@ export default function CreateTaskForm(){
 
         const newTask = {
             title,
-            description: formData.get("description").trim(),
             priority: formData.get("priority"),
             created_at: new Date().toLocaleDateString()
         }
@@ -30,19 +29,22 @@ export default function CreateTaskForm(){
     return(
         <div className={styles.blurred}>
             <form onSubmit={handleSubmit} className={styles.taskForm}>
-                <label htmlFor="title">Title: </label>
-                <input required type="text" name="title" id="title" />
+                <h1>Create new task</h1>
+
+                <label className={styles.labelTitle} htmlFor="title">
+                    Title: 
+                    <input required type="text" name="title" id="title" />
+                </label>
                 
-                <label htmlFor="description">Description (optional): </label>
-                <input type="text" name="description" id="description"></input>
-                
-                <label htmlFor="priority">Priority: </label>
-                <select required name="priority" id="priority">
-                    <option value="">choose...</option>
-                    <option value="low">low</option>
-                    <option value="medium">medium</option>
-                    <option value="high">high</option>
-                </select>
+                <label className={styles.labelPriority} htmlFor="priority">
+                    Priority:
+                    <select required name="priority" id="priority">
+                        <option value="">choose...</option>
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
+                        <option value="high">high</option>
+                    </select>
+                </label>
 
                 <div className={styles.buttonsDiv}>
                     <button className={styles.createButton} type="submit">Create task</button>
