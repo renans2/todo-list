@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+.task{
+    @apply bg-gray-800 
+            flex 
+            justify-evenly 
+            items-center 
+            border-2 
+            hover:border-gray-500 
+            border-gray-700 
+            rounded-3xl 
+            px-6
+            py-4 
+            mb-2
+}
+
+.form-label{
+    @apply text-2xl mb-2 mt-6
+}
+
+.form-input{
+    @apply h-10 bg-white text-black text-xl rounded-sm px-2
+}
+
+.form-button{
+    @apply text-2xl rounded-2xl pb-1 w-50 h-15 border-2 cursor-pointer font-bold transition ease-in duration-100
+}
+
+.cancel-button{
+    @apply border-red-400 hover:bg-red-700
+}
+
+.submit-button{
+    @apply border-green-400 hover:bg-green-700
+}
+
+.high-priority{ @apply bg-red-800 border-2 border-red-600 }
+.medium-priority{ @apply bg-orange-800 border-2 border-orange-600 }
+.low-priority{ @apply bg-green-800 border-2 border-green-600 }

@@ -6,7 +6,7 @@ export default function TodoList(){
     const { todoList, handleRemoveTask, showTaskPopUp } = useContext(AppContext)
 
     return(
-        <ul>
+        <ul className="mt-10">
             {todoList.map((task, index) => 
                 <Task key={index} 
                       task={task} 

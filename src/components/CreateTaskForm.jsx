@@ -26,28 +26,25 @@ export default function CreateTaskForm(){
     }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
-                <h1>Create new task</h1>
+        <div className='w-screen h-screen bg-black/20 fixed top-0 left-0 backdrop-blur-sm flex justify-center items-center'>
+            <form className='w-150 bg-gray-800 py-8 px-7 border-2 border-gray-500 rounded-2xl flex flex-col justify-center' 
+                  onSubmit={handleSubmit}>
+                <h1 className='text-center font-bold text-3xl'>Create new task</h1>
 
-                <label htmlFor="title">
-                    Title: 
-                    <input required type="text" name="title" id="title" />
-                </label>
+                <label className='form-label' htmlFor="title">Title:</label>
+                <input className='form-input' required type="text" name="title" id="title" />
                 
-                <label htmlFor="priority">
-                    Priority:
-                    <select required name="priority" id="priority">
-                        <option value="">choose...</option>
-                        <option value="low">low</option>
-                        <option value="medium">medium</option>
-                        <option value="high">high</option>
-                    </select>
-                </label>
+                <label className='form-label' htmlFor="priority">Priority:</label>
+                <select className='form-input' required name="priority" id="priority">
+                    <option value="">choose...</option>
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select>
 
-                <div>
-                    <button type="submit">Create task</button>
-                    <button onClick={closeCreateTaskPopUp} type='button'>Cancel</button>
+                <div className='mt-10 flex w-full justify-between items-center'>
+                    <button className='form-button cancel-button' onClick={closeCreateTaskPopUp} type='button'>Cancel</button>
+                    <button className='form-button submit-button' type="submit">Create task</button>
                 </div>
             </form>
         </div>

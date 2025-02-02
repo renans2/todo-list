@@ -28,10 +28,24 @@ function App() {
 
     return (
         <AppContext.Provider value={{todoList, handleAddTask, handleRemoveTask, closeCreateTaskPopUp, showCreateTaskPopUp}}>
-            <h1>Todo List by <a href="https://github.com/renans2">@renans2</a></h1>
-            <CreateTaskButton/>
-            {showPopUp && <CreateTaskForm />}
-            {(todoList.length === 0 && <h1>No tasks!</h1>) || <TodoList />}
+            {/* content wrapper */}
+            <div className='px-12 xl:px-64 py-4 font-sans bg-gray-900 text-white h-screen'>
+                <header>
+                    <h1 className='text-4xl font-bold inline-block mr-3'>Todo List</h1>
+                    <span className='text-3xl text-blue-200 font-light'>(with React and Tailwind)</span>
+                    <span className='text-2xl font-light block'>
+                        by <a target='_blank' className='underline hover:text-blue-400' 
+                              href="https://github.com/renans2">@renans2</a>
+                    </span>
+                </header>
+                
+                <main className='mt-10'>
+                    <CreateTaskButton/>
+                    {showPopUp && <CreateTaskForm />}
+                    {(todoList.length === 0 && <h1 className='text-6xl font-bold mt-10 text-center'>No tasks!</h1>)}
+                    <TodoList />
+                </main>
+            </div>
         </AppContext.Provider>
     )
 }
