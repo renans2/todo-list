@@ -1,8 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react'
-import CreateTaskButton from './components/CreateTaskButton/CreateTaskButton'
-import CreateTaskForm from './components/CreateTaskForm/CreateTaskForm'
-import TodoList from './components/TodoList/TodoList'
-import './App.css'
+import CreateTaskButton from './components/CreateTaskButton'
+import CreateTaskForm from './components/CreateTaskForm'
+import TodoList from './components/TodoList'
 
 const key = 'todoList'
 export const AppContext = createContext(); 

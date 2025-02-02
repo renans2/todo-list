@@ -1,6 +1,6 @@
-import Task from "../Task/Task"
+import Task from "./Task"
 import { useContext } from "react"
-import { AppContext } from "../../App"
+import { AppContext } from "../App"
 
 export default function TodoList(){
     const { todoList, handleRemoveTask, showTaskPopUp } = useContext(AppContext)
