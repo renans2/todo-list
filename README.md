@@ -1,1 +1,1 @@
-# todo-list mode with React and TailWindCss
+# todo-list made with React and TailWindCss
