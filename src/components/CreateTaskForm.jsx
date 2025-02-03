@@ -42,7 +42,7 @@ export default function CreateTaskForm(){
                     <option value="high">high</option>
                 </select>
 
-                <div className='mt-10 flex w-full justify-between items-center'>
+                <div className='mt-10 flex w-full justify-around items-center'>
                     <button className='form-button cancel-button' onClick={closeCreateTaskPopUp} type='button'>Cancel</button>
                     <button className='form-button submit-button' type="submit">Create task</button>
                 </div>

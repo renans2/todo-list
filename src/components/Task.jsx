@@ -10,7 +10,7 @@ export default function Task({ task, removeTask }){
 
             {/* priority */}
             <div className="flex w-25 justify-center">
-                <span className={`${task.priority}-priority uppercase rounded-full px-2 font-bold`}>{task.priority}</span>
+                <span className={`${task.priority}-priority uppercase rounded-full px-2 py-1 font-bold`}>{task.priority}</span>
             </div>
 
             {/* button */}
