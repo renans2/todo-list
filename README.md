@@ -1,1 +1,1 @@
-# TODO-List in React
+# todo-list made with React and TailWindCss
