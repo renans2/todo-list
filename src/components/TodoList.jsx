@@ -1,13 +1,13 @@
 import Task from "./Task"
 import { useContext } from "react"
-import { AppContext } from "../App"
+import { Context } from "../pages/TodoListPage"
 
 export default function TodoList(){
-    const { todoList, handleRemoveTask, showTaskPopUp } = useContext(AppContext)
+    const { tasks, handleRemoveTask, showTaskPopUp } = useContext(Context)
 
     return(
         <ul className="mt-10">
-            {todoList.map((task, index) => 
+            {tasks.map((task, index) => 
                 <Task key={index} 
                       task={task} 
                       removeTask={() => handleRemoveTask(index)}

@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { AppContext } from '../App'
+import { Context } from "../pages/TodoListPage"
 
 export default function CreateTaskForm(){
-    const { closeCreateTaskPopUp, handleAddTask } = useContext(AppContext)
+    const { closeCreateTaskPopUp, handleAddTask } = useContext(Context)
 
     const handleSubmit = (e) => {
         e.preventDefault()
