@@ -1,5 +1,5 @@
 import { useEffect, useState, createContext } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import CreateTaskButton from '../components/CreateTaskButton'
 import CreateTaskForm from '../components/CreateTaskForm'
 import TodoList from '../components/TodoList'
@@ -7,14 +7,21 @@ import TodoList from '../components/TodoList'
 export const Context = createContext();
 
 export default function TodoListPage(){
+    const navigate = useNavigate()
     const { listName } = useParams();
 
     const [tasks, setTasks] = useState(() => {
-        const localTasks = JSON.parse(localStorage.getItem("lists")).find(list => list.name === listName)
-        return localTasks.tasks
+        const localTasks = JSON.parse(localStorage.getItem("lists"))
+                               .find(list => list.name === listName)
+        return localTasks === undefined ? null : localTasks.tasks
     })
     
     const [showPopUp, setShowPopUp] = useState(false)
+
+    useEffect(() => {
+        if(tasks === null)
+            navigate("/")
+    }, [])
 
     useEffect(() => {
         const lists = JSON.parse(localStorage.getItem("lists"))
@@ -27,6 +34,10 @@ export default function TodoListPage(){
     const handleAddTask = (newTask) => setTasks(c => [...c, newTask])
     const closeCreateTaskPopUp = () => setShowPopUp(false)
     const showCreateTaskPopUp = () => setShowPopUp(true)
+
+    if(tasks === null){
+        return
+    }
 
     return(
         <Context.Provider value={{tasks, handleAddTask, handleRemoveTask, closeCreateTaskPopUp, showCreateTaskPopUp}}>

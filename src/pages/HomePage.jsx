@@ -44,13 +44,17 @@ export default function HomePage(){
     }
 
     return(
-        <div className='mt-10'>
-            <div className='flex justify-end items-center'>
-                <input placeholder='New list name' className='bg-white text-black p-1 rounded-xs text-xl' type="text" id='input-list' />
-                <button className='hover:bg-gray-400 bg-gray-600 ml-6 px-4 py-2 rounded-3xl text-2xl cursor-pointer' onClick={handleCreateNewList} >create new list</button>
+        <>
+            <div className='mt-10'>
+                <div className='flex justify-end items-center'>
+                    <input placeholder='New list name' className='bg-white text-black p-1 rounded-xs text-xl' type="text" id='input-list' />
+                    <button className='hover:bg-gray-400 bg-gray-600 ml-6 px-4 py-2 rounded-3xl text-2xl cursor-pointer' onClick={handleCreateNewList} >create new list</button>
+                </div>
+                <h1 className='text-4xl'>Your Lists: </h1>
+                <ListsPanel lists={lists}/>
             </div>
-            {/* <h1 className='text-4xl'>Your Lists: </h1> */}
-            <ListsPanel lists={lists}/>
-        </div>
+
+            {lists.length === 0 && <h1 className='text-6xl font-bold mt-10 text-center'>No list have been created</h1>}
+        </>
     )
 }
